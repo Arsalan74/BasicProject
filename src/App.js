@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Button from './DLIB/components/Button';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//let btnStyle = ['button'];
+const App= ()=>{
+
+    const[desireBtnStyle, setDesireBtnStyle]=useState([]);
+    const onDesireBtnStyleChange= (event)=>{
+        setDesireBtnStyle(event.target.value)
+    }
+    
+
+    return(
+        <div>
+        <input type='text' style={{width:'200px'}} 
+        placeholder='Enter your desired className'
+        value={desireBtnStyle}
+        onChange={onDesireBtnStyleChange} 
+        />
+            <Button btnComponentStyle={desireBtnStyle}/>
+        </div>
+    )
 }
 
-export default App;
+export default App ;
